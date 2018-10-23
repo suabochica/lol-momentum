@@ -17,9 +17,43 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  color:#fff;
+  flex-direction: column;
+}
+
+.overlay__top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 20px;
+  display: flex;
+  padding: 20px;
+  color: rgba(255, 255, 255, 0.5)
+}
+
+.overlay__left {
+  flex: 1 0 auto;
+  text-align: left;
+}
+
+.overlay__right {
+  flex: 1 1 auto;
+  text-align: right;
+}
+
+.overlay--time {
+  font-size: 200px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.overlay--greeting {
+  font-size: 80px;
+  font-weight: 400;
+  margin: 0;
 }
 
 h1 {
-  color:#fff;
   font-size:100px;
 }
