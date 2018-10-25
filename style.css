@@ -54,6 +54,19 @@ body {
   margin: 0;
 }
 
+.overlay--username {
+  width: 20em;
+  text-align: center;
+  background: 0;
+  border: 0;
+  border-bottom: 2px solid #fff;
+  outline: 0;
+  font-size: 30px;
+  color: #fff;
+  margin-top: 20px;
+  display: none;
+}
+
 h1 {
   font-size:100px;
 }
