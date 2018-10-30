@@ -77,20 +77,32 @@ $(document).ready(function() {
 })
 
 function setBackgroundImage() {
-  var pictureUrl = imagesURLs.images.janna.background_url;
-  var splittedBackgroundName = imagesURLs.images.janna.background_name.split(', ')
+  var selectedBackground = pickRandomBackground();
+  var backgroundUrl = selectedBackground.background_url;
+  var splittedBackgroundName = selectedBackground.background_name.split(', ')
   var skinSet = splittedBackgroundName[0];
   var characterName = splittedBackgroundName[1];
 
+
+  setCookie('background-url', backgroundUrl, 0.5);
+  setCookie('character-name', characterName, 0.5);
+
   $('.overlay--skin-set').html(skinSet);
   $('.overlay--background-name').html(characterName);
-  $('body').css('background-image',`url(${pictureUrl})`);
+  $('body').css('background-image',`url(${backgroundUrl})`);
 }
 
-function setCurrentTime(){
+function pickRandomBackground() {
+  var objectKeys = Object.keys(imagesURLs.images);
+  var randomKey = objectKeys[Math.floor(Math.random() * objectKeys.length)];
+
+  return imagesURLs.images[randomKey]
+}
+
+function setCurrentTime() {
   var now = new Date();
 
-  $('.overlay--time').html(now.getHours() + ":" + now.getMinutes())
+  $('.time').html(now.getHours()+" : "+ (now.getMinutes() < 10 ? '0' : '') + now.getMinutes());
   $('.overlay--date').html(now.toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }));
 }
 
