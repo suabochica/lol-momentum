@@ -1,39 +1,39 @@
 var imagesURLs = {
   "images": {
     "janna": {
-      "background_name": "Star Guardian Janna",
+      "background_name": "Star Guardian, Janna",
       "background_url": "https://vignette.wikia.nocookie.net/leagueoflegends/images/c/c4/Janna_StarGuardianSkin.jpg",
     },
     "jinx": {
-      "background_name": "Star Guardian Jinx",
+      "background_name": "Star Guardian, Jinx",
       "background_url": "https://vignette.wikia.nocookie.net/leagueoflegends/images/7/70/Jinx_StarGuardianSkin.jpg",
     },
     "lulu": {
-      "background_name": "Star Guardian Lulu",
+      "background_name": "Star Guardian, Lulu",
       "background_url": "https://vignette.wikia.nocookie.net/leagueoflegends/images/0/01/Lulu_StarGuardianSkin.jpg",
     },
     "lux": {
-      "background_name": "Star Guardian Lux",
+      "background_name": "Star Guardian, Lux",
       "background_url": "https://vignette.wikia.nocookie.net/leagueoflegends/images/3/31/Lux_StarGuardianSkin.jpg",
     },
     "poopy": {
-      "background_name": "Star Guardian Poopy",
+      "background_name": "Star Guardian, Poopy",
       "background_url": "https://vignette.wikia.nocookie.net/leagueoflegends/images/5/5c/Poppy_StarGuardianSkin.jpg",
     },
     "ahri": {
-      "background_name": "Star Guardian Ahri",
+      "background_name": "Star Guardian, Ahri",
       "background_url": "https://vignette.wikia.nocookie.net/leagueoflegends/images/7/73/Ahri_StarGuardianSkin.jpg",
     },
     "ezreal": {
-      "background_name": "Star Guardian Ezreal",
+      "background_name": "Star Guardian, Ezreal",
       "background_url": "https://vignette.wikia.nocookie.net/leagueoflegends/images/4/42/Ezreal_StarGuardianSkin.jpg",
     },
     "miss_fortune": {
-      "background_name": "Star Guardian MissFortune",
+      "background_name": "Star Guardian, MissFortune",
       "background_url": "https://vignette.wikia.nocookie.net/leagueoflegends/images/6/65/Miss_Fortune_StarGuardianSkin.jpg",
     },
     "syndra": {
-      "background_name": "Star Guardian Syndra",
+      "background_name": "Star Guardian, Syndra",
       "background_url": "https://vignette.wikia.nocookie.net/leagueoflegends/images/a/ad/Syndra_StarGuardianSkin.jpg"
     }
   }
@@ -77,10 +77,14 @@ $(document).ready(function() {
 })
 
 function setBackgroundImage() {
-  var picture_url = imagesURLs.images.janna.background_url;
-  var picture_name = imagesURLs.images.janna.background_name;
-  console.log({picture_url})
-  console.log({picture_name})
+  var pictureUrl = imagesURLs.images.janna.background_url;
+  var splittedBackgroundName = imagesURLs.images.janna.background_name.split(', ')
+  var skinSet = splittedBackgroundName[0];
+  var characterName = splittedBackgroundName[1];
+
+  $('.overlay--skin-set').html(skinSet);
+  $('.overlay--background-name').html(characterName);
+  $('body').css('background-image',`url(${pictureUrl})`);
 }
 
 function setCurrentTime(){
